@@ -1,0 +1,50 @@
+.grid{
+    display: grid;
+    grid-template: repeat(5, maxmin(10px, 1fr)) / repeat(5,maxmin(10px, 1fr));
+    grid-template-areas: 
+    "h h h h h"
+    "s c c c ch"
+    "s c c c ch"
+    "s c c c ch"
+    "f f f f f";
+    border: 2px solid black;
+}
+
+.grid div {
+    border: 3px solid black;
+    text-align: center;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+}
+
+.header{
+    grid-area: h;
+}
+.sidebar{
+    grid-area: s;
+}
+.content{
+    grid-area: c;
+}
+.chat{
+    grid-area: ch;
+}
+.footer{
+    grid-area: f;
+}
+
+@media screen and (max-width: 700px){
+    .grid {
+        grid-template: repeat(auto-fit, minmax(10px, 1fr)) / 1fr;
+        grid-template-areas: 
+        "h"
+        "s"
+        "c"
+        "ch"
+        "f"
+        ;
+    }
+}
